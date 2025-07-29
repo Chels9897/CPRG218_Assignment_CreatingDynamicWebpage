@@ -126,6 +126,14 @@ async function getMovies(movieTitle) {
              * and call createMovieCard() for each movie object in this array.
              */
 
+            if(filteredMovies.length == 0) {
+                createEmptyView();
+            } else {
+                for(const movie of filteredMovies) {
+                    createMovieCard(movie);
+                }
+            }
+
         }
     } catch(exception) {
         console.error("Exception occurred in getMovies function.")
@@ -162,6 +170,7 @@ async function checkPosterURL(movie) {
  * 
  *      <p class="noresult">No movie found!!! Please search for another title.</p>
  */
+
 function createEmptyView() {
     console.log("createEmptyView");
 
@@ -169,6 +178,12 @@ function createEmptyView() {
      * TASK : 2
      * Create empty view and append it to "movieCards" section.
      */
+
+    const movieCards = document.getElementById("movieCards");
+    const noResult = document.createElement("p");
+    noResult.className = "noresult";
+    noResult.innerText = "No movie found!!! Please search for another title.";
+    movieCards.appendChild(noResult);
 
 }
 
@@ -191,5 +206,17 @@ function createMovieCard(movie) {
      * TASK : 3
      * Create Movie Card and append it "movieCards" section.
      */
+    const movieCards = document.getElementById("movieCards");
+    const card = createHtmlElement("article", ["card"]);
 
+    const title = createHtmlElement("p", ["cardTitle"], movie.Title);
+    const posterDiv = createHtmlElement("div", ["cardPosterDiv"]);
+    const poster = createHtmlElement("img", ["moviePoster"]);
+    poster.src = movie.Poster;
+    poster.alt = "Movie poster";
+    posterDiv.appendChild(poster);
+
+    card.appendChild(title);
+    card.appendChild(posterDiv);
+    movieCards.appendChild(card);
 }
