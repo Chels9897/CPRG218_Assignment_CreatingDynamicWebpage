@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', addEventHandlers);    // calling a
 
 /**
  * Gets the value entered in the search bar and pass that value to getMovies function.
+ * this is the function that extracts the text from the search bar and calls the getMovies function.
+ * clearPreviousResult deletes the previous search results before making a new search.
  */
 function searchHandler() {
     const inputTxt = document.getElementById("searchBar").value;
