@@ -9,7 +9,7 @@
  * 7.) There are 3 task in this that you have to complete. Discuss with your instructor to understand the task.
  */
 
-const myApiKey = "c787948e"; // <<-- ADD YOUR API KEY HERE. DELETE THIS KEY before uploading your code on Github or Brightspace, 
+const myApiKey = ""; // <<-- ADD YOUR API KEY HERE. DELETE THIS KEY before uploading your code on Github or Brightspace, 
 
 const BASE_URL = "http://www.omdbapi.com";
 
@@ -187,7 +187,7 @@ function createEmptyView() {
     noResult.innerText = "No movie found!!! Please search for another title.";
     movieCards.appendChild(noResult);
 
-}
+}/* can use createHtmlElement function to create the p element */
 
 /**
  * Create a movie card using the parameter. The card should have movie title and poster. The card should follow below structure:
